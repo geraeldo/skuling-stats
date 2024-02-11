@@ -9,9 +9,12 @@ async function scrapeAndSaveStats() {
 
   try {
     console.log("Logging in and navigating...");
-    await page.goto("https://app.skuling.id/login", {
-      waitUntil: "networkidle0",
-    });
+    await Promise.race([
+      page.goto("https://app.skuling.id/login", {
+        waitUntil: "networkidle0",
+      }),
+      new Promise((resolve) => setTimeout(resolve, 20000)),
+    ]);
     await page.type("#username", "geraeldo");
     await page.type("#password", "F4KHQzuoYzC8Wj");
     const loginButtonText = "Log In";
@@ -20,9 +23,12 @@ async function scrapeAndSaveStats() {
     await page.click(loginButtonSelector);
     await page.waitForNavigation();
 
-    await page.goto("https://app.skuling.id/stats", {
-      waitUntil: "networkidle0",
-    });
+    await Promise.race([
+      page.goto("https://app.skuling.id/stats", {
+        waitUntil: "networkidle0",
+      }),
+      new Promise((resolve) => setTimeout(resolve, 20000)),
+    ]);
 
     // Extract stats
     const stats = await page.evaluate(() => {
