@@ -27,7 +27,7 @@ async function scrapeAndSaveStats() {
       page.goto("https://app.skuling.id/stats", {
         waitUntil: "networkidle0",
       }),
-      new Promise((resolve) => setTimeout(resolve, 20000)),
+      new Promise((resolve) => setTimeout(resolve, 30000)),
     ]);
 
     // Extract stats
