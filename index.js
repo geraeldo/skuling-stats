@@ -1,6 +1,7 @@
 import puppeteer from "puppeteer";
 import { db } from "./firebase/config.js";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import("dotenv/config");
 
 async function scrapeAndSaveStats() {
   console.log("Starting browser...");
@@ -15,8 +16,8 @@ async function scrapeAndSaveStats() {
       }),
       new Promise((resolve) => setTimeout(resolve, 20000)),
     ]);
-    await page.type("#username", "geraeldo");
-    await page.type("#password", "F4KHQzuoYzC8Wj");
+    await page.type("#username", process.env.USERNAME);
+    await page.type("#password", process.env.PASSWORD);
     const loginButtonText = "Log In";
     const loginButtonSelector = `button::-p-text("${loginButtonText}")`;
     await page.waitForSelector(loginButtonSelector, { visible: true });

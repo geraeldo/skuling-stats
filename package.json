@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "firebase": "^10.8.0",
     "jsdom": "^24.0.0",
     "puppeteer": "^22.0.0"
