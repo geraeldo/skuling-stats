@@ -4,3 +4,4 @@ csv
 ptn.js
 namsek.js
 .env
+.env.local
