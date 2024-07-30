@@ -18,7 +18,7 @@ async function scrapeAndSaveStats() {
     ]);
     await page.type("#username", process.env.USERNAME);
     await page.type("#password", process.env.PASSWORD);
-    const loginButtonText = "Log In";
+    const loginButtonText = "Masuk";
     const loginButtonSelector = `button::-p-text("${loginButtonText}")`;
     await page.waitForSelector(loginButtonSelector, { visible: true });
     await page.click(loginButtonSelector);
